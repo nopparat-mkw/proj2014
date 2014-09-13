@@ -117,10 +117,6 @@
 								</tr>
 							</tbody>
 						</table>
-						<div align="center">
-							<button type="submit" class="btn btn-default">บันทึก</button>
-							<button type="reset" class="btn btn-default">ยกเลิก</button>
-						</div>
 
 					</form>
 				</div>

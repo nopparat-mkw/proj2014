@@ -132,7 +132,7 @@
 <!-- 																</button> -->
 																<button type="button" class="btn btn-primary btn-circle"
 																	data-toggle="modal" data-target="#editAttendance"
-																	>
+																	onclick="editAttendance('${majorStudent}','${selectEducation}','${selectEducation1}','${chkTerm}','${item}')">
 																	<i class="fa fa-list"></i>
 																</button>
 

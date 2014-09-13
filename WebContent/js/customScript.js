@@ -68,8 +68,7 @@ function editHoliday(date, month, year) {
 
 function editAttendance(majorName, eduBackground, eduLevel, term,
 		dateAttendance) {
-	alert("Test Alert");
-	$.get('EditAttendanceServlet', {
+	$.post('EditAttendanceServlet', {
 		'majorName' : majorName,
 		'eduBackground' : eduBackground,
 		'eduLevel' : eduLevel,
