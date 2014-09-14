@@ -29,6 +29,14 @@
 	       $('#dataTables-list').dataTable();
 	       $('#modal-table').dataTable();
 	       
+	       $('#example').dataTable( {
+		        "bSort": false,      // Disable sorting
+			"iDisplayLength": 15,   //records per page
+			 	"sDom": "t<'row'<'col-md-6'i><'col-md-6'p>>",
+				"sPaginationType": "bootstrap"
+			} );
+		
+	   
 	   });
    </script>
 <title>View All Attendance Page</title>
@@ -192,6 +200,10 @@
 	<script src="js/plugins/metisMenu/jquery.metisMenu.js"></script>
 	<script src="js/plugins/dataTables/jquery.dataTables.js"></script>
     <script src="js/plugins/dataTables/dataTables.bootstrap.js"></script>
+    	<script type="text/javascript" language="javascript" src="js/plugins/newTables/jquery-1.10.2.min.js"></script>
+		<script type="text/javascript" language="javascript" src="js/plugins/newTables/jquery.dataTables.min.js"></script>
+		<script type="text/javascript" language="javascript" src="js/plugins/newTables/jquery-DT-pagination.js"></script>
+    
     <script src="js/sb-admin.js"></script>
     <script type="text/javascript" src="js/customScript.js"></script>
 </body>
