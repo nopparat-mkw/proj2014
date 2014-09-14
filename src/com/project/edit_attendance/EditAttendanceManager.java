@@ -1,11 +1,11 @@
 package com.project.edit_attendance;
 
 import java.sql.Connection;
-import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import com.project.bean.AttendanceBean;
@@ -37,7 +37,10 @@ public class EditAttendanceManager {
 			preparedStatement.setString(2, eduBackground);
 			preparedStatement.setInt(3, eduLevel);
 			preparedStatement.setString(4, term);
-			preparedStatement.setDate(5, dateAttendance);
+			
+			java.sql.Date sqlCreateDate = new java.sql.Date(dateAttendance.getTime());
+			System.out.println(sqlCreateDate);
+			preparedStatement.setDate(5, sqlCreateDate);
 			ResultSet rs = preparedStatement.executeQuery();
 			while (rs.next()) {	
 				StudentBean studentBean = new StudentBean();

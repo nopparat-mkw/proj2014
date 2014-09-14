@@ -75,6 +75,24 @@ function editAttendance(majorName, eduBackground, eduLevel, term,
 		'term' : term,
 		'dateAttendance' : dateAttendance
 	}, function(data) {
+		var dShow = "วันที่ - "+dateAttendance;
+		var eShow = eduBackground + " "+eduLevel;
+		var tShow = "เทอม "+term;
+		$('#DateShow').val(dShow);
+		$('#EducationShow').val(eShow);
+		$('#TermShow').val(tShow);
+		$.each(data, function(i, item) {
+			newRow = "<tr>" +
+	        "<td>"+i+"</td>" +
+	        "<td>"+item.attendance.student.studentID+"</td>" +
+	        "<td>"+item.attendance.student.antecedent+"</td>" +
+	        "<td>"+item.attendance.student.firstName+"</td>" +
+	        "<td>"+item.attendance.student.lastName+"</td>" +
+	        "<td>"+item.attendance.statusActivity+"</td>" +
+	    "</tr>";
+	    $('#modal-table > tbody > tr:last').after(newRow);
+			//$('#modal-table').append($("<option></option>").attr("value", item.majorName).text(item.majorName));
+		});
 	});
 }
 
