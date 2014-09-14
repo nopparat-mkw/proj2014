@@ -28,15 +28,6 @@
 	   $(document).ready(function() {
 	       $('#dataTables-list').dataTable();
 	       $('#modal-table').dataTable();
-	       
-	       $('#example').dataTable( {
-		        "bSort": false,      // Disable sorting
-			"iDisplayLength": 15,   //records per page
-			 	"sDom": "t<'row'<'col-md-6'i><'col-md-6'p>>",
-				"sPaginationType": "bootstrap"
-			} );
-		
-	   
 	   });
    </script>
 <title>View All Attendance Page</title>
@@ -168,7 +159,7 @@
 				<div class="modal-header">
 					<button type="button" class="close" data-dismiss="modal"
 						aria-hidden="true">&times;</button>
-					<h4 class="modal-title">แก้ไขข้อมูลส่วนตัว</h4>
+					<h4 class="modal-title">แก้ไขข้อมูการเข้าแถว</h4>
 				</div>
 				<div class="modal-body">
 					<jsp:include page="EditAttendancePage.jsp" flush="false" />
@@ -200,10 +191,6 @@
 	<script src="js/plugins/metisMenu/jquery.metisMenu.js"></script>
 	<script src="js/plugins/dataTables/jquery.dataTables.js"></script>
     <script src="js/plugins/dataTables/dataTables.bootstrap.js"></script>
-    	<script type="text/javascript" language="javascript" src="js/plugins/newTables/jquery-1.10.2.min.js"></script>
-		<script type="text/javascript" language="javascript" src="js/plugins/newTables/jquery.dataTables.min.js"></script>
-		<script type="text/javascript" language="javascript" src="js/plugins/newTables/jquery-DT-pagination.js"></script>
-    
     <script src="js/sb-admin.js"></script>
     <script type="text/javascript" src="js/customScript.js"></script>
 </body>

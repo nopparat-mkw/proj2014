@@ -82,14 +82,14 @@ function editAttendance(majorName, eduBackground, eduLevel, term,
 		$('#EducationShow').val(eShow);
 		$('#TermShow').val(tShow);
 		
-		$.each(data, function(i, item) {
-	    $('#tbody-show').append('<tr><td>'+ i
-	    			+'<td>'+ item.attendance.student.studentID
-	 				+' </td><td>'+ item.attendance.student.antecedent +''+ item.attendance.student.firstName
-	 				+' </td><td>'+ item.attendance.student.lastName
-	 				+' </td><td>'+ item.attendance.statusActivity
-	 				+'</td></tr>');
-		});
+//		$.each(data, function(i, item) {
+//	    $('#tbody-show').append('<tr><td>'+ i
+//	    			+'<td>'+ item.attendance.student.studentID
+//	 				+' </td><td>'+ item.attendance.student.antecedent +''+ item.attendance.student.firstName
+//	 				+' </td><td>'+ item.attendance.student.lastName
+//	 				+' </td><td>'+ item.attendance.statusActivity
+//	 				+'</td></tr>');
+//		});
 	});
 }
 

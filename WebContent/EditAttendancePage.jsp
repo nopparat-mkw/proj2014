@@ -19,7 +19,7 @@
 
 				<div class="table-responsive">
 					<form>
-						<table id="example" class="table table-bordered table-hover">
+						<table id="modal-table" class="table table-bordered table-hover">
 							<thead>
 								<tr>
 									<th>ลำดับ</th>
@@ -30,15 +30,15 @@
 								</tr>
 							</thead>
 							<tbody id="tbody-show">
-<%-- 								<c:forEach items="${listSchedule}" var="itemList" varStatus="theCount"> --%>
-<!-- 								<tr> -->
-<%-- 									<td >${theCount.count}</td> --%>
-<%-- 									<td >${itemList.attendance.student.studentID}</td> --%>
-<%-- 									<td >${itemList.attendance.student.antecedent}  ${itemList.attendance.student.firstName }</td> --%>
-<%-- 									<td >${itemList.attendance.student.lastName}</td> --%>
-<%-- 									<td >${itemList.attendance.statusActivity}</td> --%>
-<!-- 								</tr> -->
-<%-- 								</c:forEach> --%>
+								<c:forEach items="${listSchedule}" var="itemList" varStatus="theCount">
+								<tr>
+									<td >${theCount.count}</td>
+									<td >${itemList.attendance.student.studentID}</td>
+									<td >${itemList.attendance.student.antecedent}  ${itemList.attendance.student.firstName }</td>
+									<td >${itemList.attendance.student.lastName}</td>
+									<td >${itemList.attendance.statusActivity}</td>
+								</tr>
+								</c:forEach>
 									
 							</tbody>
 						</table>
