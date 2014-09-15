@@ -52,39 +52,55 @@ public class EditAttendanceServlet extends HttpServlet {
 		response.setContentType("text/html;charset=UTF-8");
 
 		EditAttendanceManager edtMng = new EditAttendanceManager();
+		String majorName = request.getParameter("majorName");
+		String eduBackground = request.getParameter("eduBackground");
+		String eduLevel = request.getParameter("eduLevel");
+		String term = request.getParameter("term");
+		String dateAttendance = request.getParameter("dateAttendance");
+
 		if (request.getParameter("studentID") == null) {
-			String majorName = request.getParameter("majorName");
-			String eduBackground = request.getParameter("eduBackground");
-			String eduLevel = request.getParameter("eduLevel");
-			int intEduLevel = Integer.parseInt(eduLevel);
-			String term = request.getParameter("term");
-			String dateAttendance = request.getParameter("dateAttendance");
-
-			/*
-			 * Show Date
-			 */
-
 			try {
+				int intEduLevel = Integer.parseInt(eduLevel);
 				Date result = new SimpleDateFormat("yyyy-MM-dd", Locale.ENGLISH).parse(dateAttendance);
 				System.out.println(result);
 				List<ScheduleBean> listSchedule = edtMng.listStudentAndSchedule(majorName, eduBackground, intEduLevel, term, result);
-				request.getSession().setAttribute("listSchedule", listSchedule);
+
 				for (int i = 0; i < listSchedule.size(); i++) {
-					System.out.println(listSchedule.get(i).getAttendance().getStudent().getStudentID());
+					System.out.println("- : " + listSchedule.get(i).getAttendance().getStudent().getStudentID());
 				}
+
 				String json1 = new Gson().toJson(listSchedule);
 				response.setContentType("application/json");
 				response.setCharacterEncoding("UTF-8");
 				response.getWriter().write(json1);
-			} catch (ParseException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			} catch (SQLException e) {
-				// TODO Auto-generated catch block
+
+			} catch (SQLException | ParseException e) {
 				e.printStackTrace();
 			}
 
+		} else if (request.getParameter("studentID").equalsIgnoreCase("1")) {
+			try {
+				int intEduLevel = Integer.parseInt(eduLevel);
+				Date result = new SimpleDateFormat("yyyy-MM-dd", Locale.ENGLISH).parse(dateAttendance);
+				System.out.println(result);
+				List<ScheduleBean> listSchedule = edtMng.listStudentAndSchedule(majorName, eduBackground, intEduLevel, term, result);
+
+				for (int i = 0; i < listSchedule.size(); i++) {
+					System.out.println(listSchedule.get(i).getAttendance().getStudent().getStudentID());
+				}
+				request.getSession().setAttribute("listSchedule", listSchedule);
+				// request.getRequestDispatcher("EditAttendance.jsp").forward(request,
+				// response);
+				response.sendRedirect("EditAttendance.jsp");
+			} catch (SQLException | ParseException e) {
+				e.printStackTrace();
+			}
 		}
+		// else {
+		//
+		// request.getRequestDispatcher("EditAttendance.jsp").forward(request,
+		// response);
+		// }
 	}
 
 }

@@ -66,21 +66,67 @@ function editHoliday(date, month, year) {
 	});
 }
 
-function editAttendance(majorName, eduBackground, eduLevel, term,
-		dateAttendance) {
+function test(majorName, eduBackground, eduLevel, term,
+		dateAttendance) {		
+//	$.ajax({
+//        url: 'EditAttendanceServlet',
+//        data: {
+//        	'majorName' : majorName,
+//    		'eduBackground' : eduBackground,
+//    		'eduLevel' : eduLevel,
+//    		'term' : term,
+//    		'dateAttendance' : dateAttendance
+//        },
+//        type: 'post',
+//        success: function(data){
+//          window.location = 'EditAttendanceServlet';
+//        } 
+//
+//    });
+	
+	
 	$.post('EditAttendanceServlet', {
 		'majorName' : majorName,
 		'eduBackground' : eduBackground,
 		'eduLevel' : eduLevel,
 		'term' : term,
-		'dateAttendance' : dateAttendance
+		'dateAttendance' : dateAttendance,
+		
 	}, function(data) {
 		var dShow = "วันที่ - "+dateAttendance;
 		var eShow = eduBackground + " "+eduLevel;
 		var tShow = "เทอม "+term;
+		
+		$('#DateShowss').val(dShow);
+		$('#EducationShowss').val(eShow);
+		$('#TermShowss').val(tShow);
+		
+		window.location = 'EditAttendanceServlet?studentID=1&majorName='+majorName
+		+'&eduBackground='+eduBackground+'&eduLevel='+eduLevel+'&term='+term+'&dateAttendance='+dateAttendance;
+	});
+	
+}
+
+
+function editAttendance(majorName, eduBackground, eduLevel, term,
+		dateAttendance) {	
+	$.post('EditAttendanceServlet', {
+		'majorName' : majorName,
+		'eduBackground' : eduBackground,
+		'eduLevel' : eduLevel,
+		'term' : term,
+		'dateAttendance' : dateAttendance,
+		
+	}, function(data) {
+		var dShow = "วันที่ - "+dateAttendance;
+		var eShow = eduBackground + " "+eduLevel;
+		var tShow = "เทอม "+term;
+		
 		$('#DateShow').val(dShow);
 		$('#EducationShow').val(eShow);
 		$('#TermShow').val(tShow);
+		
+//		window.location = 'EditAttendanceServlet?studentID=1';
 		
 //		$.each(data, function(i, item) {
 //	    $('#tbody-show').append('<tr><td>'+ i
@@ -91,6 +137,7 @@ function editAttendance(majorName, eduBackground, eduLevel, term,
 //	 				+'</td></tr>');
 //		});
 	});
+	
 }
 
 function editStudentByID(id) {

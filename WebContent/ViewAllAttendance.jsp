@@ -134,6 +134,10 @@
 																	onclick="editAttendance('${majorStudent}','${selectEducation}','${selectEducation1}','${chkTerm}','${item}')">
 																	<i class="fa fa-list"></i>
 																</button>
+																<button type="button" class="btn btn-primary btn-circle"
+																	onclick="test('${majorStudent}','${selectEducation}','${selectEducation1}','${chkTerm}','${item}')">
+																	<i class="fa fa-user"></i>
+																</button>
 
 															
 
